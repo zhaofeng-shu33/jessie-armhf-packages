@@ -9,6 +9,6 @@ sed -i 's/11/9/g' ./debian/control
 # libmysql-dev
 sed -i 's/default-libmysql/libmysql/g' ./debian/control
 sudo apt-get install --yes devscripts
-sudo mk-build-deps --install --tool='apt-get -aarmhf --yes' debian/control
+sudo mk-build-deps --install --tool='apt-get -o APT::Architectures=armhf --yes' debian/control
 dpkg-buildpackage -aarmhf -us -uc
 
