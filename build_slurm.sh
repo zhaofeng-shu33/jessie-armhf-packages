@@ -14,6 +14,6 @@ sed -i 's/11/9/g' ./debian/control
 # libmysql-dev
 sed -i 's/default-libmysql/libmysql/g' ./debian/control
 sudo apt-get install --yes --no-upgrade devscripts
-sudo mk-build-deps --install --tool='apt-get -o APT::Architecture=armhf -o Dpkg::Options::="--force-overwrite" --yes --no-upgrade' debian/control
+sudo mk-build-deps --install --tool='apt-get -o APT::Architecture=armhf -o Dpkg::Options::="--no-force-overwrite" --yes --no-upgrade' debian/control
 dpkg-buildpackage -aarmhf -us -uc
 
