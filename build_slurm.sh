@@ -12,7 +12,7 @@ cd slurm-llnl-18.08.5.2
 sed -i 's/11/9/g' ./debian/control
 # libmysql-dev
 sed -i 's/default-libmysql/libmysql/g' ./debian/control
-sudo apt-get install --yes devscripts
-sudo mk-build-deps --install --tool='apt-get -o APT::Architecture=armhf --yes' debian/control
+sudo apt-get install --yes --no-upgrade devscripts
+sudo mk-build-deps --install --tool='apt-get -o APT::Architecture=armhf --yes --no-upgrade' debian/control
 dpkg-buildpackage -aarmhf -us -uc
 
