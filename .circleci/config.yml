@@ -1,0 +1,16 @@
+version: 2.1
+executors:
+  my-executor:
+    docker:
+      - image: ev3dev/debian-jessie-cross 
+jobs:
+  build:
+    executor: my-executor
+    steps:
+      - checkout
+      - run: bash build_slurm.sh
+workflows:
+  version: 2
+  experiment:
+    jobs:
+      - build
